@@ -2,7 +2,9 @@ import kotlin.math.sqrt
 
 class Evristik(val firstMetod: FirstMetod, val points: ArrayList<Point>) {
     var clasters: ArrayList<Claster> = ArrayList()
-    var firstZ: Point = if (firstMetod == FirstMetod.FIRST) points.get(0) else if (firstMetod == FirstMetod.LAST) points.get(points.count() - 1) else points.get((0 until points.count()).random())
+    var firstZ: Point = if (firstMetod == FirstMetod.FIRST) points.get(0)
+                        else if (firstMetod == FirstMetod.LAST) points.get(points.count() - 1)
+                        else points.get((0 until points.count()).random())
     var T: ArrayList<Int> = ArrayList()
 
     fun pointsMinus(x: Point, z: Point): Point {
@@ -30,6 +32,7 @@ class Evristik(val firstMetod: FirstMetod, val points: ArrayList<Point>) {
                     }
                 }
             }
+            println("T = $it")
             println(clasters)
             print("z = ")
             clasters.forEach{print("${it.z} ")}
@@ -43,7 +46,7 @@ class Evristik(val firstMetod: FirstMetod, val points: ArrayList<Point>) {
                 val disperce = findDisperce(it, averageDist)
                 val minMax = findMinMaxDistance(it)
 
-                println("${averageDist}, ")
+                println("average distance = ${averageDist}")
                 println()
                 println("Disperce = ${disperce}")
                 println()
